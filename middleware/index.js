@@ -12,6 +12,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
 						res.redirect("back");
 						} else{
 						//does user own campground
+							eval (require('locus'))
 						if(foundCampground.author.id.equals(req.user._id) || req.user.isAdmin){
 							next();
 						} else{
@@ -35,7 +36,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
 						res.redirect("back");
 						} else{
 						//does user own campground
-						if(foundComment.author.id.equals(req.user._id)|| req.user.isAdmin){
+						if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
 							next();
 						} else{
 							req.flash("error", "You dont have permission!");
@@ -45,7 +46,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
 						}
 					});
 			} else{
-				req.flash("error", "You need to be logged in bruh!");
+				req.flash("error", "You need to be logged in ");
 			    res.redirect("back");
 				}
 }
