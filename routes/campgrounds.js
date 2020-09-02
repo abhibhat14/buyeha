@@ -2,7 +2,16 @@ var express = require("express");
 var router  = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
-
+var NodeGeocoder = require('node-geocoder');
+ 
+var options = {
+  provider: 'google',
+  httpAdapter: 'https',
+  apiKey: process.env.GEOCODER_API_KEY,
+  formatter: null
+};
+ 
+var geocoder = NodeGeocoder(options);
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
@@ -20,13 +29,14 @@ router.post("/", function(req, res){
     // get data from form and add to campgrounds array
     var name = req.body.name;
 	var price = req.body.price;
+	var phone = req.body.phone;
     var image = req.body.image;
     var desc = req.body.description;
 	var author = {
 		id: req.user._id,
 		username: req.user.username
 	}
-    var newCampground = {name: name, price:price, image: image, description: desc, author:author}
+    var newCampground = {name: name, price:price, phone:phone, image: image, description: desc, author:author}
     // Create a new campground and save to DB
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
@@ -76,6 +86,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function (req, res) {
         } else {
             campground.name = req.body.campground.name;
             campground.description = req.body.campground.description;
+			campground.phone= req.body.campground.phone;
             campground.image = req.body.campground.image;
             campground.save(function (err) {
                 if (err) {
