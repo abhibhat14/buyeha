@@ -13,3 +13,12 @@
 .delete-form{
 	display: inline;
 }
+
+.jumbotron{
+	background-color: dodgerblue;
+}
+
+body{
+	background-color: forestgreen;
+	background: forestgreen;
+}
