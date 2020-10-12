@@ -15,10 +15,66 @@
 }
 
 .jumbotron{
-	background-color: dodgerblue;
+	background-color: white;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #333ab7;
+    border-color: #2e6da4;
 }
 
 body{
-	background-color: forestgreen;
-	background: forestgreen;
+	background-color: #350403;
+	margin-top: 0%;
+	padding-top: 0%;
+}
+.navbar{
+	background-color: #bd0e29;
+	padding: 0;
+	margin: auto;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 25px 25px;
+    color: white;
+    font-weight: 500;
+    font-weight: 500;
+    font-size: large;
+}
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    color: white;
+    padding: 25px 25px;
+    /* padding-top: 15px; */
+    font-size: 18px;
+    line-height: 20px;
+}
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+    background-image: url(https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    background-blend-mode: hard-light;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.thumbnail img {
+    width: 55%;
+}
+
+.pull-left {
+    display: contents;
+    /* padding-left: 100px; */
+    float: left!important;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    padding: 35px 35px;
 }
