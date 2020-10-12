@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <p class="lead">YelpCamp</p>
+            <p class="lead"></p>
             <div class="list-group">
                 <li class="list-group-item active">Info 1</li>
                 <li class="list-group-item">Info 2</li>
@@ -14,16 +14,16 @@
             <div class="thumbnail">
                 <img class="img-responsive" src="<%= campground.image %>">
                 <div class="caption-full">
-                    <h4 class="pull-right">$<%= campground.price %>/night</h4>
+                    <h4 class="pull-right">$<%= campground.price %></h4>
 					<h4><a><%=campground.name%></a></h4>  <br>
-					<h4 class="pull-left">Contact No: <%= campground.phone %></h4>
+					<h4 class="pull-left" style="display: contents;">Contact No: <%= campground.phone %></h4>
 					<div class="pull-right">
                         <button type="button" class="btn btn-xs btn-primary" data-toggle="modal"
                                 data-target="#campgroundLikes">
                             <span>Total likes: <i class="fas fa-thumbs-up"></i> <%= campground.likes.length %></span>
                         </button>
                     </div>
-					<div style="padding-bottom: 10px;">
+					<div style="padding-bottom: 20px;">
                         <form action="/campgrounds/<%= campground._id %>/like" method="POST">
                             <div class="btn-group">
                                 <% if (currentUser && campground.likes.some(function (like) {
@@ -72,7 +72,7 @@
 						<a class="btn btn-xs btn-warning" 
 						   href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">EDIT</a>
         				<form class="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-							  <input type="submit" class="btn btn-xs btn-danger" value="DELETE! Sure :P">
+							  <input type="submit" class="btn btn-xs btn-danger" value="DELETE">
 							</form> 
 							<% } %>
                         </div>
